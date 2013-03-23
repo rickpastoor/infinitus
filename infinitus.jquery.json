@@ -1,0 +1,24 @@
+{
+    "name": "infinitous",
+    "title": "infinitous – jQuery Infinite Scroll Plugin",
+    "description": "A super tiny jQuery plugin to implement infinite scrolling.",
+    "keywords": [
+        "infinite",
+        "scroll",
+        "scrolling"
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Rick Pastoor",
+        "email": "rick@wrep.nl"
+    },
+    "dependencies": {
+        "jquery": ">=1.7"
+    }
+}
