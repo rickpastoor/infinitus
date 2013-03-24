@@ -10,12 +10,21 @@ module.exports = function(grunt) {
         src: '<%= pkg.name %>.jquery.js',
         dest: '<%= pkg.name %>.jquery.min.js'
       }
+    },
+    jshint: {
+      src: {
+        options: {
+          jshintrc: '.jshintrc'
+        },
+        src: ['*.jquery.js']
+      }
     }
   });
   
-  // Load the plugin that provides the "uglify" task.
+  // Load the npm tasks
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['jshint', 'uglify']);
 };

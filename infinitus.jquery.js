@@ -6,8 +6,9 @@
  */
 
 ;(function ($, window, document, undefined) {
+	"use strict";
 
-	// Set up defaults
+    // Set up defaults
     var pluginName = "infinitus";
     var defaults = {
         trigger: $.noop,
@@ -30,32 +31,32 @@
 
     Infinitus.prototype = {
         init: function() {
-        	var self = this;
-        	self.window.on('scroll', function() {
-        		if (!self.working && self.isAtBottom()) {
-        			// Start working
-        			self.working = true;
-        			
-        			// Call onStart
-        			self.options.onStart();
-        			
-        			self.options.trigger(function() {
-        				// End working
-        				self.working = false;
-        				
-        				// Call onEnd
-            			self.options.onEnd();
-        			});
-        		}
-        	});
-        },
-        
-        isAtBottom: function() {
-        	var contentOffset = this.element.offset(),
-				elementBottom = this.element.height() + contentOffset.top,
-				scrollBottom = this.window.scrollTop() + this.window.height();
+            var self = this;
+            self.window.on('scroll', function() {
+                if (!self.working && self.isAtBottom()) {
+                    // Start working
+                    self.working = true;
 
-        	return scrollBottom >= elementBottom;
+                    // Call onStart
+                    self.options.onStart();
+
+                    self.options.trigger(function() {
+                        // End working
+                        self.working = false;
+
+                        // Call onEnd
+                        self.options.onEnd();
+                    });
+                }
+            });
+        },
+
+        isAtBottom: function() {
+            var contentOffset = this.element.offset(),
+                elementBottom = this.element.height() + contentOffset.top,
+                scrollBottom = this.window.scrollTop() + this.window.height();
+
+            return scrollBottom >= elementBottom;
         }
     };
 
