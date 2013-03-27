@@ -17,14 +17,24 @@ module.exports = function(grunt) {
           jshintrc: '.jshintrc'
         },
         src: ['*.jquery.js']
+      },
+      test: {
+        options: {
+          jshintrc: 'test/.jshintrc'
+        },
+        src: ['test/**/*.js']
       }
-    }
+    },
+    qunit: {
+      files: ['test/**/*.html']
+    },
   });
   
   // Load the npm tasks
+  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'uglify']);
 };
