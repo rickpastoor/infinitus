@@ -38,15 +38,15 @@
                     self.working = true;
 
                     // Call onStart
-                    self.options.onStart();
+                    $.proxy(self.options.onStart, self.element)();
 
-                    self.options.trigger(function() {
+                    $.proxy(self.options.trigger, self.element, function() {
                         // End working
                         self.working = false;
 
                         // Call onEnd
-                        self.options.onEnd();
-                    });
+                        $.proxy(self.options.onEnd, self.element)();
+                    })();
                 }
             });
         },
